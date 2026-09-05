@@ -1,0 +1,26 @@
+post_install() {
+    # Disable power-profiles-daemon if active so it doesn't conflict
+    if systemctl is-active --quiet power-profiles-daemon.service; then
+        echo "==> Disabling power-profiles-daemon (conflicts with linux-power-tray)..."
+        systemctl stop power-profiles-daemon.service 2>/dev/null || true
+        systemctl disable power-profiles-daemon.service 2>/dev/null || true
+        systemctl mask power-profiles-daemon.service 2>/dev/null || true
+    fi
+
+    echo ""
+    echo "==> linux-power-tray installed successfully."
+    echo "==> Launch from your application menu or run: linux-power-tray &"
+    echo ""
+}
+
+post_upgrade() {
+    post_install
+}
+
+post_remove() {
+    # Unmask power-profiles-daemon if it was disabled
+    if systemctl is-masked --quiet power-profiles-daemon.service; then
+        echo "==> Unmasking power-profiles-daemon..."
+        systemctl unmask power-profiles-daemon.service 2>/dev/null || true
+    fi
+}
