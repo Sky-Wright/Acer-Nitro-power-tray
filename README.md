@@ -1,5 +1,7 @@
 # Acer-Nitro-power-tray
 
+![Tray Menu](assets/tray-menu.png)
+
 Simple brute force power profiles for easy GUI control for Acer Nitro AN-515-42-RED.
 
 ## Why this exists
