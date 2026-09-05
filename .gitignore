@@ -1,0 +1,23 @@
+# Personal Scripts
+0LazyCommit.sh
+
+# Arch Build Files
+pkg/
+src/
+*.pkg.tar.zst
+*.pkg.tar.xz
+linux-power-tray-*.src.tar.gz
+
+# CMake / Build
+build/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# Compiled Binaries
+linux-power-tray
+set-governor
+*.o
+*.a
+*.so

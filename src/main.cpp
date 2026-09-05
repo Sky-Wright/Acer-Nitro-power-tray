@@ -1,1 +1,0 @@
-/home/sky/Creation/linux-power-tray/main.cpp

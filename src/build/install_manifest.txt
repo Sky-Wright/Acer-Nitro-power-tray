@@ -1,3 +1,0 @@
-/usr/bin/linux-power-tray
-/usr/lib/linux-power-tray/set-governor
-/usr/share/applications/linux-power-tray.desktop
