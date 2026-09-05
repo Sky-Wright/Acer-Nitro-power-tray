@@ -15,3 +15,23 @@ This Qt6 system tray app bypasses the BIOS limits entirely by:
 * **Performance ⚡**: Full boost enabled. (15W AC / 9W Battery)
 * **Balanced ⚖️**: Dynamic scaling. (10W AC / 6W Battery)
 * **Powersave 🌙**: Extreme battery saver, forces CPU below 1.6GHz. (6W AC / 3W Battery)
+
+## Installation (Arch Linux)
+Before installing, you **must** disable normal Linux power profiles entirely, otherwise they will fight this tray app for control. 
+
+Disable `power-profiles-daemon` (or `tlp` if you use it):
+```bash
+sudo systemctl stop power-profiles-daemon
+sudo systemctl mask power-profiles-daemon
+```
+
+Build and install the package using `makepkg` (this will automatically pull in the `ryzenadj` dependency):
+```bash
+git clone git@github.com:Sky-Wright/Acer-Nitro-power-tray.git
+cd Acer-Nitro-power-tray
+makepkg -sif
+```
+
+Once installed, launch it from your application menu, or run `linux-power-tray &` from the terminal. It will automatically add itself to your startup applications.
+
+*(Other distros are on their own lol. You'll have to compile with CMake manually and figure out your own setuid permissions.)*
